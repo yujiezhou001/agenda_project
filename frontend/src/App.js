@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
+import Nav from "./Nav";
 
 class App extends Component {
-  state = { users: [] };
+  state = { 
+    users: [],
+    currentUser: {
+      name: "Yujie"
+    }, 
+  };
 
   componentDidMount() {
     fetch('/api/users')
@@ -14,6 +19,7 @@ class App extends Component {
     return (
       <div className='App'>
         <h1>Users</h1>
+        <Nav currentUser={this.state.currentUser}/>
         {this.state.users.map(user => (
           <div key={user.id}>
             {user.first_name} {user.last_name}
