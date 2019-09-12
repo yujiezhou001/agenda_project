@@ -4,7 +4,7 @@ import React, {Component} from "react";
 class Nav extends Component {
     render() {
       //Current User
-      const currentUser = this.props.currentUser.name;
+      const currentUser = this.props.currentUser.first_name;
       //Time
       const timeOptions = {
         timeZone: "Canada/Eastern",
@@ -22,7 +22,7 @@ class Nav extends Component {
                 <p className="navbar-user">Current User: {currentUser}</p>
             </div>
             <div className="navbarTime">
-                <p className="navbar-time">Today is {day} Time Now: {time}</p>
+                <p className="navbar-time">Today is {day}   Time Now: {time}</p>
             </div>
             <div className="navbarButton">
                 <button className="navbar-button">Add Your Task Here</button>
