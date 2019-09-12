@@ -9,11 +9,17 @@ class App extends Component {
     currentUser: {
       first_name: "Yujie"
     }, 
-    temporaryTasks: [{
-      id: 1,
-      name: "Clean the Room",
-      complete_status: true
-    }]
+    temporaryTasks: [
+      {
+        id: 1,
+        name: "Clean the Room",
+        complete_status: false
+      }, {
+        id: 2,
+        name: "Do laundry",
+        complete_status: false
+      }
+  ]
   };
 
   componentDidMount() {
