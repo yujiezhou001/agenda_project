@@ -7,7 +7,7 @@ class TaskList extends Component {
     render() {
         //For each Task object, decide whether to make them Task component
         //or notification component  
-        const taskList = this.props.userTask.map(eachTask => (
+        const taskList = this.props.temporaryTasks.map(eachTask => (
               <Task key={eachTask.id} id= {eachTask.id} name={eachTask.name} status={eachTask.complete_status}/>
         ))
       

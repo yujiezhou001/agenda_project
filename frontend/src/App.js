@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Nav from "./Nav";
 import TaskList from "./TaskList";
-import Task from './Task';
 
 class App extends Component {
   state = { 

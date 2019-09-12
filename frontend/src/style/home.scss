@@ -42,9 +42,10 @@ body {
   flex: 2;
 }
 
-.message {
+.task {
   display: flex;
   padding: 5px;
+  justify-content: space-between;
 }
 
 .message.system {
@@ -52,8 +53,8 @@ body {
   padding: 5px 20px;
 }
 
-.message-content,
-.message-username {
+.taskId,
+.taskName {
   overflow: hidden;
   margin: 5px;
   padding: 0 10px;
@@ -63,7 +64,7 @@ body {
   flex: 8;
 }
 
-.message-username {
+.taskName {
   flex: 2;
   font-weight: 700;
 }
