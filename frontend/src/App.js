@@ -32,14 +32,17 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <h1>Users</h1>
+      <div className="tasksTitle">
+        <h1>Your Tasks</h1>
+      </div>
+        
         <Nav currentUser={this.state.currentUser}/>
         <TaskList temporaryTasks={this.state.temporaryTasks}/>
-        {this.state.users.map(user => (
+        {/* {this.state.users.map(user => (
           <div key={user.id}>
             {user.first_name} {user.last_name}
           </div>
-        ))}
+        ))} */}
       </div>
     );
   }

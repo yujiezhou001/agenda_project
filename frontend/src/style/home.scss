@@ -2,7 +2,7 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css");
 
 h1 {
-  color: tomato;
+  color: rgb(237, 164, 56);
 }
 
 body {
@@ -44,8 +44,9 @@ body {
 
 .task {
   display: flex;
-  padding: 5px;
+  padding: 10px;
   justify-content: space-between;
+  border-bottom: 1px solid black;
 }
 
 .message.system {
@@ -67,6 +68,11 @@ body {
 .taskName {
   flex: 2;
   font-weight: 700;
+}
+
+.tasksTitle {
+  display: flex;
+  justify-content: center;
 }
 
 .navbar {

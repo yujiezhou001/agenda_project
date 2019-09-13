@@ -4,8 +4,8 @@ import React, {Component} from "react";
 
 const Checkbox = props => (
     <div>
-    <input type="checkbox" {...props} />
-    <span> Completed</span>
+        <input type="checkbox" {...props} />
+        <span> Completed</span>
     </div>
   )
 
@@ -26,7 +26,7 @@ class Task extends Component {
             </div>
             <span className="taskStatus">
             <Checkbox
-                status={this.state.status}
+                status={true}
                 onChange={this.handleCheckboxChange}
             />
             </span>
