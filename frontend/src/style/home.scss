@@ -43,6 +43,18 @@ body {
   justify-content: center;
 }
 
+.taskStatus {
+  padding: 5px;
+}
+
+.deleteButton {
+  padding: 5px;
+}
+.checkboxButton {
+  display: flex;
+  align-items: center;
+}
+
 .navbar {
   background: rgba(255, 181, 71, 0.502);
   border-bottom: 1px solid black;

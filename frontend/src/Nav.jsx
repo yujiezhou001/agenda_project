@@ -25,7 +25,9 @@ class Nav extends Component {
                 <p className="navbar-time">Today is {day}   Time Now: {time}</p>
             </div>
             <div className="navbarButton">
-                <button className="navbar-button">Add Your Task Here</button>
+              <button type="button" className="btn btn-outline-success btn-sm">
+                <span className="glyphicon glyphicon-plus"></span>
+              </button>
             </div>
         </nav>
       );
