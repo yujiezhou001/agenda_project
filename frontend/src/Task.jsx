@@ -52,12 +52,12 @@ class Task extends Component {
               </div>
 
               <div className="taskSecondBlock">
-                <span className="taskDescription">{this.props.description}</span>
+                <span className="taskDescription">Description: {this.props.description}</span>
               </div>
 
               <div className="taskThirdBlock">
                 <span className="taskCreatedTime">
-                  <Moment fromNow>{createdTime}</Moment>
+                  Created at: <Moment fromNow>{createdTime}</Moment>
                 </span>
               </div>
 
