@@ -12,11 +12,11 @@ class App extends Component {
     temporaryTasks: [
       {
         id: 1,
-        name: "Clean the Room",
+        task_name: "Clean the Room",
         complete_status: false
       }, {
         id: 2,
-        name: "Do laundry",
+        task_name: "Do laundry",
         complete_status: false
       }
   ]
