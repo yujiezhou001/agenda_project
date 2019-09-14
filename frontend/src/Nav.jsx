@@ -25,7 +25,7 @@ class Nav extends Component {
                 <p className="navbar-time">Today is {day}   Time Now: {time}</p>
             </div>
             <div className="navbarButton">
-              <button type="button" className="btn btn-outline-success btn-sm">
+              <button type="button" className="btn btn-outline-success btn-xs">
                 <span className="glyphicon glyphicon-plus"></span>
               </button>
             </div>

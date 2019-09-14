@@ -36,7 +36,7 @@ class Task extends Component {
                   />
                 </span>
                 <span className="deleteButton">
-                    <button type="button" className="btn btn-outline-danger btn-xs">
+                    <button type="button" className="btn btn-outline-danger btn-sm">
                         <span className="glyphicon glyphicon-minus"></span>
                     </button>
                 </span>

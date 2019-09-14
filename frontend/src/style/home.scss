@@ -21,6 +21,7 @@ body {
   margin-bottom: 5px;
   height: 50px;
   align-items: center;
+  height: 100px;
 }
 
 
@@ -50,6 +51,7 @@ body {
 .deleteButton {
   padding: 5px;
 }
+
 .checkboxButton {
   display: flex;
   align-items: center;
@@ -58,7 +60,6 @@ body {
 .navbar {
   background: rgba(255, 181, 71, 0.502);
   border-bottom: 1px solid black;
-  height: 60px;
   left: 0;
   padding: 0 10px;
   position: fixed;
@@ -67,4 +68,5 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 80px;
 }
