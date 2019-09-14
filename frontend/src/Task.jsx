@@ -2,7 +2,6 @@
 
 import React, {Component} from "react";
 
-let initial_status = this.props.status;
 
 const Checkbox = props => (
     <div>
@@ -12,16 +11,17 @@ const Checkbox = props => (
   )
 
 class Task extends Component {
+
     
-    state = { status: initial_status }
+    state = { checked: this.props.status }
 
     handleCheckboxChange = event =>
-    this.setState({ status: event.target.status })
-    intial_status = event.target.status;
+    this.setState({ checked: event.target.checked })
 
     render() {
 
-        
+        // const initial_status = this.props.status;
+
         return(
             <div className="task" id={this.props.id}>
             <div className="taskIdName">
@@ -30,7 +30,7 @@ class Task extends Component {
             </div>
             <span className="taskStatus">
             <Checkbox
-                checked={this.state.status}
+                checked={this.state.checked}
                 onChange={this.handleCheckboxChange}
             />
             </span>
