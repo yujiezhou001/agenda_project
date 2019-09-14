@@ -10,7 +10,6 @@ body {
   color: black;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
-  margin: 70px 0;
 }
 
 .task {
@@ -19,7 +18,6 @@ body {
   justify-content: space-between;
   border: 0.5px solid grey;
   margin-bottom: 5px;
-  height: 50px;
   align-items: center;
   height: 100px;
 }
@@ -60,11 +58,6 @@ body {
 .navbar {
   background: rgba(255, 181, 71, 0.502);
   border-bottom: 1px solid black;
-  left: 0;
-  padding: 0 10px;
-  position: fixed;
-  right: 0;
-  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
