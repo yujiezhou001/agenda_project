@@ -1,6 +1,7 @@
 //Create each task component
 
 import React, {Component} from "react";
+import Moment from 'react-moment';
 
 
 const Checkbox = props => (
@@ -12,13 +13,15 @@ const Checkbox = props => (
 
 class Task extends Component {
 
-    
+
     state = { checked: this.props.status }
 
     handleCheckboxChange = event =>
     this.setState({ checked: event.target.checked })
 
     render() {
+      const timeStamp = this.props.createdTime;
+      const createdTime = new Date(timeStamp.replace(' ', 'T'));
 
         // const initial_status = this.props.status;
 
@@ -53,7 +56,9 @@ class Task extends Component {
               </div>
 
               <div className="taskThirdBlock">
-                <span className="taskCreatedTime">{this.props.createdTime}</span>
+                <span className="taskCreatedTime">
+                  <Moment fromNow>{createdTime}</Moment>
+                </span>
               </div>
 
             </div>
