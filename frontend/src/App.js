@@ -25,8 +25,11 @@ class App extends Component {
   componentDidMount() {
     fetch('/api/users')
       .then(res => res.json())
+      // .then(users => console.log("Is this array?", users))
       .then(users => this.setState({ users }))
-    console.log("From State", this.state.users)
+    fetch('/api/tasks')
+      .then(res => res.json())
+      .then(tasks => this.setState({ tasks}))
   }
 
   render() {
@@ -36,7 +39,7 @@ class App extends Component {
         <div className="tasksTitle">
           <h1>Your Tasks</h1>
         </div>
-        <TaskList temporaryTasks={this.state.temporaryTasks}/>
+        <TaskList tasks={this.state.tasks}/>
         {/* {this.state.users.map(user => (
           <div key={user.id}>
             {user.first_name} {user.last_name}

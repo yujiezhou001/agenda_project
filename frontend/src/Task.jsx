@@ -24,23 +24,38 @@ class Task extends Component {
 
         return(
             <div className="task" id={this.props.id}>
-              <div className="taskIdName">
-                <span className="taskId">{this.props.id}</span>
-                <span className="taskName">{this.props.name}</span>
+
+              <div className="taskFirstBlock">
+
+                <div className="taskIdName">
+                  <span className="taskId">{this.props.id}</span>
+                  <span className="taskName">{this.props.name}</span>
+                </div>
+
+                <div className="checkboxButton">
+                  <span className="taskStatus">
+                    <Checkbox
+                      checked={this.state.checked}
+                      onChange={this.handleCheckboxChange}
+                    />
+                  </span>
+                  <span className="deleteButton">
+                      <button type="button" className="btn btn-outline-danger btn-sm">
+                          <span className="glyphicon glyphicon-minus"></span>
+                      </button>
+                  </span>
+                </div>
+
               </div>
-              <div className="checkboxButton">
-                <span className="taskStatus">
-                  <Checkbox
-                    checked={this.state.checked}
-                    onChange={this.handleCheckboxChange}
-                  />
-                </span>
-                <span className="deleteButton">
-                    <button type="button" className="btn btn-outline-danger btn-sm">
-                        <span className="glyphicon glyphicon-minus"></span>
-                    </button>
-                </span>
+
+              <div className="taskSecondBlock">
+                <span className="taskDescription">{this.props.description}</span>
               </div>
+
+              <div className="taskThirdBlock">
+                <span className="taskCreatedTime">{this.props.createdTime}</span>
+              </div>
+
             </div>
             
         )

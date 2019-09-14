@@ -14,12 +14,38 @@ body {
 
 .task {
   display: flex;
-  padding: 10px;
-  justify-content: space-between;
+  flex-direction: column;
   border: 0.5px solid grey;
   margin-bottom: 5px;
+  height: 120px;
+}
+
+.taskFirstBlock {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  // border: 0.5px solid grey;
+  // margin-bottom: 5px;
   align-items: center;
-  height: 100px;
+  // height: 100px;
+}
+
+.taskSecondBlock {
+  overflow: hidden;
+  margin: 5px;
+  padding: 0 10px;
+  font-family: 'Open Sans', sans-serif;
+  flex: 2;
+  font-weight: 300;
+}
+
+.taskThirdBlock {
+  overflow: hidden;
+  margin: 5px;
+  padding: 0 10px;
+  font-family: 'Open Sans', sans-serif;
+  flex: 2;
+  font-weight: 300;
 }
 
 
@@ -29,10 +55,6 @@ body {
   overflow: hidden;
   margin: 5px;
   padding: 0 10px;
-}
-
-
-.taskName {
   flex: 2;
   font-weight: 700;
 }
