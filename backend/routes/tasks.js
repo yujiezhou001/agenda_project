@@ -5,7 +5,6 @@ const knex = require('knex')(knexConfig['development']);
 
 /* GET tasks listing. */
 router.get('/', function(req, res, next) {
-  console.log("hello")
   knex
     .select('*')
     .from('tasks')
@@ -14,14 +13,19 @@ router.get('/', function(req, res, next) {
     })
 });
 
+/* UPDATE task status. */
 router.post('/', function(req, res, next) {
   const {taskId, complete_status, type} = req.body;
-  console.log(complete_status, type, taskId)
-  knex('tasks')
-  .where({ id: taskId })
-  .update({ complete_status: complete_status })
-  .returning('complete_status')
-  .then(results => res.json(`You have updated your task${taskId} status to ${results}`))
+  switch (type) {
+    case "status":
+    knex('tasks')
+      .where({ id: taskId })
+      .update({ complete_status: complete_status })
+      .returning('complete_status')
+      .then(results => res.json(`You have updated your task ${taskId} complete status to ${results}`))
+    break;
+  }
+  
   
 });
 
