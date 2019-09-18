@@ -16,14 +16,39 @@ class Task extends Component {
 
     state = { checked: this.props.status }
 
-    handleCheckboxChange = event =>
+    handleCheckboxChange = event => {
     this.setState({ checked: event.target.checked })
+    //after user updates check status in front-end, update it as well in the backend
+    const taskStatus = this.state.checked;
+
+      const response = fetch("./", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          status: taskStatus,
+          type: "status"
+        })
+      })
+
+      const jsonResponse = response.json();
+      console.log(jsonResponse)
+    }
+
+    
+
+    componentDidMount() {
+      
+    }
+
 
     render() {
       const timeStamp = this.props.createdTime;
       const createdTime = new Date(timeStamp.replace(' ', 'T'));
 
-        // const initial_status = this.props.status;
+        console.log(this.state.checked)
 
         return(
             <div className="task" id={this.props.id}>
