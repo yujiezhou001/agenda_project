@@ -15,9 +15,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  if (req.body.type === "status") {
-    console.log(req.body.status)
-    res.json(req.body.status)
+  const {taskId, taskStatus, type} = req.body;
+  if (type === "status") {
+    console.log(taskStatus)
+    res.json("You have submitted a post request")
   }
   
 });

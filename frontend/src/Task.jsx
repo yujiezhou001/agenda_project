@@ -14,27 +14,13 @@ const Checkbox = props => (
 class Task extends Component {
 
 
-    state = { checked: this.props.status }
+    state = {
+      checked: this.props.status,
+      id: this.props.id
+    }
 
     handleCheckboxChange = event => {
     this.setState({ checked: event.target.checked })
-    //after user updates check status in front-end, update it as well in the backend
-    const taskStatus = this.state.checked;
-
-      const response = fetch("./", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          status: taskStatus,
-          type: "status"
-        })
-      })
-
-      const jsonResponse = response.json();
-      console.log(jsonResponse)
     }
 
     
@@ -45,10 +31,40 @@ class Task extends Component {
 
 
     render() {
+      
       const timeStamp = this.props.createdTime;
       const createdTime = new Date(timeStamp.replace(' ', 'T'));
 
-        console.log(this.state.checked)
+      console.log(this.state.checked)
+
+      const taskStatus = this.state.checked;
+      const taskId = this.state.id;
+
+      axios
+      .post("/api/tasks", {
+        taskId: taskId,
+        taskStatus: taskStatus,
+        type: "status"
+      })
+      .then(({ data }) => {
+        console.log(data)
+        // window.location.reload();
+      });
+
+      // const response = fetch("/api/tasks", {
+      //   method: "POST",
+      //   headers: {
+      //     Accept: "application/json",
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     taskId: taskId,
+      //     taskStatus: taskStatus,
+      //     type: "status"
+      //   })
+      // })
+
+      // console.log(JSON.parse(response))
 
         return(
             <div className="task" id={this.props.id}>
