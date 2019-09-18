@@ -15,10 +15,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  const {taskId, taskStatus, type} = req.body;
+  const {taskId, complete_status, type} = req.body;
+  console.log(complete_status, type, taskId)
   if (type === "status") {
-    console.log(taskStatus)
-    res.json("You have submitted a post request")
+    knex('tasks')
+      .where('id', taskId)
+      .update('complete_status', complete_status)
+    res.json("You have updated your task status")
   }
   
 });

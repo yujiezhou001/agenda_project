@@ -2,6 +2,7 @@
 
 import React, {Component} from "react";
 import Moment from 'react-moment';
+import axios from "axios";
 
 
 const Checkbox = props => (
@@ -21,6 +22,21 @@ class Task extends Component {
 
     handleCheckboxChange = event => {
     this.setState({ checked: event.target.checked })
+    // Since the state is downloaded before state changed and stay like that after the state is updated. 
+    // Directly pass the updated status to the backend
+    const complete_status = event.target.checked;
+      const taskId = this.state.id;
+
+      axios
+      .post("/api/tasks", {
+        taskId: taskId,
+        complete_status: complete_status,
+        type: "status"
+      })
+      .then(({ data }) => {
+        console.log(data)
+        // window.location.reload();
+      });
     }
 
     
@@ -36,20 +52,6 @@ class Task extends Component {
       const createdTime = new Date(timeStamp.replace(' ', 'T'));
 
       console.log(this.state.checked)
-
-      const taskStatus = this.state.checked;
-      const taskId = this.state.id;
-
-      axios
-      .post("/api/tasks", {
-        taskId: taskId,
-        taskStatus: taskStatus,
-        type: "status"
-      })
-      .then(({ data }) => {
-        console.log(data)
-        // window.location.reload();
-      });
 
       // const response = fetch("/api/tasks", {
       //   method: "POST",
