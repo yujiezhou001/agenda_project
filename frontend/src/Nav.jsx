@@ -52,11 +52,11 @@ class Nav extends Component {
                 <span className="glyphicon glyphicon-plus"></span>
               </button>
             </div>
-            <section>
+            <section className="popupComponent">
                 <Modal visible={this.state.visible} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
-                    <div>
-                        <Form/>
-                        <a href="javascript:void(0);" onClick={() => this.closeModal()}>Close</a>
+                    <div className="formAndCloseLink">
+                      <Form/>
+                      <a className="closelink" href="javascript:void(0);" onClick={() => this.closeModal()}>Close</a>
                     </div>
                 </Modal>
             </section>
