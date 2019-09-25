@@ -13,13 +13,25 @@ class Form extends Component {
     }
 
     handleOnSubmit = (e) => {
+        const requestBodyInformation = {
+          task_name: this.state.task_name,
+          task_description: this.state.task_description,
+          complete_status: this.state.complete_status,
+          type: "name_description"
+        };
+
+        if (requestBodyInformation.task_name.length === 0) {
+          delete requestBodyInformation.task_name;
+        }
+
+        if (requestBodyInformation.task_description.length === 0) {
+          delete requestBodyInformation.task_description;
+        }
+
         e.preventDefault();
         axios
-          .post("/api/tasks", {
-            task_name: this.state.task_name,
-            task_description: this.state.task_description,
-            complete_status: this.state.complete_status
-          })
+          .post("/api/tasks", requestBodyInformation
+          )
           .then(({ data }) => {
             console.log("Received from backend:", data);
           });
