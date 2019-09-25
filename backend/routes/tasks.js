@@ -15,9 +15,10 @@ router.get('/', function(req, res, next) {
 
 /* UPDATE task status. */
 router.post('/', function(req, res, next) {
+  const {type} = req.body;
   switch (type) {
     case "status":
-      const {taskId, complete_status, type} = req.body;
+      let {taskId, complete_status} = req.body;
       knex('tasks')
         .where({ id: taskId })
         .update({ complete_status: complete_status })
@@ -25,7 +26,9 @@ router.post('/', function(req, res, next) {
         .then(results => res.json(`You have updated your task ${taskId} complete status to ${results}`))
     break;
     case "name_description":
-      console.log(req.body)
+      let {task_name, task_description} = req.body.bodyInfo;
+      console.log(task_name)
+    break;
   }
   
   

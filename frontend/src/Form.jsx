@@ -16,8 +16,7 @@ class Form extends Component {
         const requestBodyInformation = {
           task_name: this.state.task_name,
           task_description: this.state.task_description,
-          complete_status: this.state.complete_status,
-          type: "name_description"
+          complete_status: this.state.complete_status
         };
 
         if (requestBodyInformation.task_name.length === 0) {
@@ -30,8 +29,10 @@ class Form extends Component {
 
         e.preventDefault();
         axios
-          .post("/api/tasks", requestBodyInformation
-          )
+          .post("/api/tasks", {
+            bodyInfo: requestBodyInformation,
+            type: "name_description"
+          })
           .then(({ data }) => {
             console.log("Received from backend:", data);
           });
