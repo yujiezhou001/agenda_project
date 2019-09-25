@@ -40,7 +40,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <Nav currentUser={this.state.currentUser}/>
+        <Nav currentUser={this.state.currentUser} addTask={this.addTask}/>
         <div className="tasksTitle">
           <h1>Your Tasks</h1>
         </div>

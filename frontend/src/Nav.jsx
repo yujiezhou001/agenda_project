@@ -55,7 +55,7 @@ class Nav extends Component {
             <section className="popupComponent">
                 <Modal visible={this.state.visible} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                     <div className="formAndCloseLink">
-                      <Form/>
+                      <Form addTask={this.props.addTask} closeModal={this.closeModal}/>
                       <a className="closelink" href="javascript:void(0);" onClick={() => this.closeModal()}>Close</a>
                     </div>
                 </Modal>

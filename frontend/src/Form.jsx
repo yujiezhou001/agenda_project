@@ -35,8 +35,10 @@ class Form extends Component {
             type: "name_description"
           })
           .then(({ data }) => {
-            console.log("Received from backend:", data);
+            this.props.addTask(data);
           });
+
+        
       }
     
       handleTaskNameInput = (e) => {
@@ -64,7 +66,7 @@ class Form extends Component {
                     <label htmlFor="inputTaskDescription">Task Description</label>
                     <input type="text" className="form-control" id="inputTaskDescription" name="task_description" placeholder="Description of the task" value={this.state.task_description} onChange={this.handleTaskDescriptionInput}/>
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary" onClick={() => this.prpos.closeModal}>Submit</button>
                 </form>
             </div>      
         )
