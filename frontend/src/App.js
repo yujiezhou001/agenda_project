@@ -22,6 +22,11 @@ class App extends Component {
   ]
   };
 
+  addTask = (newTask) => {
+    const oldTasks = this.state.tasks;
+    const newTaskArray = [...oldTasks, newTask];
+  }
+
   componentDidMount() {
     fetch('/api/users')
       .then(res => res.json())

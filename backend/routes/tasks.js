@@ -28,12 +28,11 @@ router.post('/', function(req, res, next) {
         .then(results => res.json(`You have updated your task ${taskId} complete status to ${results}`))
     break;
     case "name_description":
-      const {task_name, task_description} = req.body.bodyInfo;
-      complete_status = req.body.bodyInfo.complete_status;
+      const {task_name, task_description, form_complete_status} = req.body.bodyInfo;
       const taskObj = {
         task_name: task_name,
         task_description: task_description,
-        complete_status: complete_status
+        complete_status: form_complete_status
       }
       knex('tasks')
       .insert([taskObj])
