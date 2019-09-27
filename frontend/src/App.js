@@ -24,7 +24,9 @@ class App extends Component {
 
   addTask = (newTask) => {
     const oldTasks = this.state.tasks;
-    const newTaskArray = [...oldTasks, newTask];
+    const tasks = [...oldTasks, newTask];
+    this.setState({tasks})
+    console.log(newTask)
   }
 
   componentDidMount() {
