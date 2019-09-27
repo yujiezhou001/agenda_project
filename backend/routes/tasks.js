@@ -17,6 +17,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
   const {type} = req.body;
   switch (type) {
+    //Update complete status of the task
     case "status":
       const {taskId} = req.body;
       //separate complete_status from two post requests
@@ -27,7 +28,9 @@ router.post('/', function(req, res, next) {
         .returning('complete_status')
         .then(results => res.json(`You have updated your task ${taskId} complete status to ${results}`))
     break;
+    //insert the name and complete status of the task
     case "name_description":
+      //notice another name for complete staus
       const {task_name, task_description, form_complete_status} = req.body.bodyInfo;
       const taskObj = {
         task_name: task_name,
@@ -38,6 +41,22 @@ router.post('/', function(req, res, next) {
       .insert([taskObj])
       .returning(['id', 'task_name', 'task_description', 'complete_status', 'created_at', 'updated_at'])
       .then(results => res.json(results[0]))
+    break;
+    //delete the task based on it's taskId
+    case "delete":
+      //notice another name for taskId
+      const {taskIdforDelete} = req.body;
+      knex('tasks')
+      .where('id', taskIdforDelete)
+      .del()
+      .then(
+        knex
+          .select('*')
+          .from('tasks')
+          .then(tasks => {
+            res.json(tasks);
+          })
+        )
     break;
   }
   

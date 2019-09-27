@@ -43,12 +43,12 @@ class Task extends Component {
   
         axios
         .post("/api/tasks", {
-          taskId: taskId,
+          taskIdforDelete: taskId,
           type: "delete"
         })
         .then(({ data }) => {
           console.log(data)
-          // this.props.deleteTask(data);
+          // this.props.deleteTask(taskId);
         });
       }
 
