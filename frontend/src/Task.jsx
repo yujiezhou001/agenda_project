@@ -38,7 +38,22 @@ class Task extends Component {
       });
     }
 
-    
+    handleOnClick = () => {
+        const taskId = this.state.id;
+  
+        axios
+        .post("/api/tasks", {
+          taskId: taskId,
+          type: "delete"
+        })
+        .then(({ data }) => {
+          console.log(data)
+          // this.props.deleteTask(data);
+        });
+      }
+
+
+
 
     componentDidMount() {
       
@@ -85,7 +100,7 @@ class Task extends Component {
                     />
                   </span>
                   <span className="deleteButton">
-                      <button type="button" className="btn btn-outline-danger btn-sm">
+                      <button type="button" onClick={this.handleOnClick} className="btn btn-outline-danger btn-sm">
                           <span className="glyphicon glyphicon-minus"></span>
                       </button>
                   </span>

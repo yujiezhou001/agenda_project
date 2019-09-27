@@ -26,7 +26,6 @@ class App extends Component {
     const oldTasks = this.state.tasks;
     const tasks = [...oldTasks, newTask];
     this.setState({tasks: tasks})
-    console.log(this.state.tasks)
   }
 
   deleteTask = (id) => {
@@ -52,7 +51,7 @@ class App extends Component {
         <div className="tasksTitle">
           <h1>Your Tasks</h1>
         </div>
-        <TaskList tasks={this.state.tasks}/>
+        <TaskList tasks={this.state.tasks} deleteTask={this.deleteTask}/>
         {/* {this.state.users.map(user => (
           <div key={user.id}>
             {user.first_name} {user.last_name}
