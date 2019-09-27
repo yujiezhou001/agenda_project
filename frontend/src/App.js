@@ -29,6 +29,12 @@ class App extends Component {
     console.log(this.state.tasks)
   }
 
+  deleteTask = (id) => {
+    this.state.tasks.filter(function(task, index){
+      return task.id !== id
+    })
+  }
+
   componentDidMount() {
     fetch('/api/users')
       .then(res => res.json())
