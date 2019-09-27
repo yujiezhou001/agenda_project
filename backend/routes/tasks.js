@@ -37,7 +37,7 @@ router.post('/', function(req, res, next) {
       knex('tasks')
       .insert([taskObj])
       .returning(['id', 'task_name', 'task_description', 'complete_status', 'created_at', 'updated_at'])
-      .then(results => res.json(results))
+      .then(results => res.json(results[0]))
     break;
   }
   
