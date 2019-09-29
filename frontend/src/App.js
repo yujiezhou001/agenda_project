@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   changeStatus = (updatedTaskListWithStatusChange) => {
-    console.log("from front-end changeStatus function:", updatedTaskListWithStatusChange)
+    this.setState({tasks: updatedTaskListWithStatusChange})
   }
 
   componentDidMount() {
