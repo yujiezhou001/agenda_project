@@ -24,16 +24,23 @@ class App extends Component {
 
   addTask = (newTask) => {
     const oldTasks = this.state.tasks;
-    const tasks = [...oldTasks, newTask];
+    const tasks = this.orderTasks([...oldTasks, newTask]);
     this.setState({tasks: tasks})
   }
 
   deleteTask = (updatedTaskList) => {
-    this.setState({tasks: updatedTaskList})
+    const tasks = this.orderTasks(updatedTaskList)
+    this.setState({tasks: tasks})
   }
 
   changeStatus = (updatedTaskListWithStatusChange) => {
-    this.setState({tasks: updatedTaskListWithStatusChange})
+    const tasks = this.orderTasks(updatedTaskListWithStatusChange)
+    this.setState({tasks: tasks})
+  }
+
+  orderTasks = (tasks) => {
+    const firstSort = tasks.sort(function(a, b){return a.id - b.id});
+    firstSort.sort(function(a, b){return a.status - b.status})
   }
 
   componentDidMount() {
@@ -43,7 +50,10 @@ class App extends Component {
       .then(users => this.setState({ users }))
     fetch('/api/tasks')
       .then(res => res.json())
-      .then(tasks => this.setState({ tasks}))
+      .then(unorderedTasks => {
+        const tasks = this.orderTasks(unorderedTasks)
+        this.setState({ tasks: tasks})
+      })
   }
 
   render() {
