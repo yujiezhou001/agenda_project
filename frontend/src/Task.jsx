@@ -20,6 +20,7 @@ class Task extends Component {
       id: this.props.id
     }
 
+    //handle the checkbox of every task
     handleCheckboxChange = event => {
     this.setState({ checked: event.target.checked })
     // Since the state is downloaded before state changed and stay like that after the state is updated. 
@@ -38,6 +39,7 @@ class Task extends Component {
       });
     }
 
+    //handle the delete button of every task
     handleOnClick = () => {
         const taskId = this.state.id;
   
@@ -47,8 +49,8 @@ class Task extends Component {
           type: "delete"
         })
         .then(({ data }) => {
-          console.log(data)
-          // this.props.deleteTask(taskId);
+          this.props.deleteTask(data);
+          alert(`You have deleted task id${data.id}`)
         });
       }
 

@@ -28,10 +28,8 @@ class App extends Component {
     this.setState({tasks: tasks})
   }
 
-  deleteTask = (id) => {
-    this.state.tasks.filter(function(task, index){
-      return task.id !== id
-    })
+  deleteTask = (updatedTaskList) => {
+    this.setState({tasks: updatedTaskList})
   }
 
   componentDidMount() {
