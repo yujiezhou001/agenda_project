@@ -49,14 +49,12 @@ router.post('/', function(req, res, next) {
       knex('tasks')
       .where('id', taskIdforDelete)
       .del()
-      .then(
-        knex
-          .select('*')
-          .from('tasks')
-          .then(tasks => {
-            res.json(tasks);
-          })
-        )
+      .then(results => {
+        return knex.select("*").from("tasks");
+      })
+      .then(tasks => {
+        res.json(tasks);
+      })
     break;
   }
   
