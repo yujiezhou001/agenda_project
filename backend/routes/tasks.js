@@ -22,11 +22,19 @@ router.post('/', function(req, res, next) {
       const {taskId} = req.body;
       //separate complete_status from two post requests
       let {complete_status} = req.body;
+      const responseObj = {};
       knex('tasks')
         .where({ id: taskId })
         .update({ complete_status: complete_status })
         .returning('complete_status')
-        .then(results => res.json(`You have updated your task ${taskId} complete status to ${results}`))
+        .then(results => {responseObj.newStatus = results})
+        .then(results => {
+          return knex.select("*").from("tasks");
+        })
+        .then(tasks => {
+          responseObj.tasks = tasks;
+          res.json(responseObj);
+        })
     break;
     //insert the name and complete status of the task
     case "name_description":

@@ -22,10 +22,10 @@ class Task extends Component {
 
     //handle the checkbox of every task
     handleCheckboxChange = event => {
-    this.setState({ checked: event.target.checked })
-    // Since the state is downloaded before state changed and stay like that after the state is updated. 
-    // Directly pass the updated status to the backend
-    const complete_status = event.target.checked;
+      this.setState({ checked: event.target.checked })
+      // Since the state is downloaded before state changed and stay like that after the state is updated. 
+      // Directly pass the updated status to the backend
+      const complete_status = event.target.checked;
       const taskId = this.state.id;
 
       axios
@@ -35,7 +35,8 @@ class Task extends Component {
         type: "status"
       })
       .then(({ data }) => {
-        console.log(data)
+        console.log(`You have updated your task ${taskId} complete status to ${data.newStatus}`);
+        this.props.changeStatus(data.tasks)
       });
     }
 
@@ -50,7 +51,7 @@ class Task extends Component {
         })
         .then(({ data }) => {
           this.props.deleteTask(data);
-          alert(`You have deleted task id${data.id}`)
+          alert(`You have deleted task id${taskId}`)
         });
       }
 

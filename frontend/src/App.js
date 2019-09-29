@@ -32,6 +32,10 @@ class App extends Component {
     this.setState({tasks: updatedTaskList})
   }
 
+  changeStatus = (updatedTaskListWithStatusChange) => {
+    console.log("from front-end changeStatus function:", updatedTaskListWithStatusChange)
+  }
+
   componentDidMount() {
     fetch('/api/users')
       .then(res => res.json())
@@ -49,7 +53,7 @@ class App extends Component {
         <div className="tasksTitle">
           <h1>Your Tasks</h1>
         </div>
-        <TaskList tasks={this.state.tasks} deleteTask={this.deleteTask}/>
+        <TaskList tasks={this.state.tasks} deleteTask={this.deleteTask} changeStatus={this.changeStatus}/>
         {/* {this.state.users.map(user => (
           <div key={user.id}>
             {user.first_name} {user.last_name}
