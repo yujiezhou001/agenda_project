@@ -38,6 +38,11 @@ class App extends Component {
     this.setState({tasks: tasks});
   }
 
+  changeTaskDescription = (updatedTaskListWithDescriptionChange) => {
+    const tasks = this.orderTasks(updatedTaskListWithDescriptionChange);
+    this.setState({tasks: tasks});
+  }
+
   orderTasks = (tasks) => {
     const firstSort = tasks.sort(function(a, b){return a.id - b.id});
     return firstSort.sort(function(a, b){return a.complete_status - b.complete_status});

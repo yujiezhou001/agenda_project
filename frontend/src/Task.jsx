@@ -69,9 +69,21 @@ class Task extends Component {
       });
     }
 
+    handleKeyDownDescription = (event) => {
+
+      if (event.key === "Enter"){
+        this.props.changeUserName(this.state.username);
+        event.target.value ='';
+        this.setState({username: ''})
+      }
+    }
+
 
     componentDidMount() {
-      
+      // const input = document.querySelectorAll('input');
+      //   for(let i=0; i<input.length; i++){
+      //     input[i].setAttribute('size',input[i].getAttribute('placeholder').length);
+      //   }
     }
 
 
@@ -80,7 +92,9 @@ class Task extends Component {
       const timeStamp = this.props.createdTime;
       const createdTime = new Date(timeStamp.replace(' ', 'T'));
 
-      console.log(this.state.checked)
+      // console.log(this.state.checked)
+
+      
 
       // const response = fetch("/api/tasks", {
       //   method: "POST",
@@ -131,6 +145,7 @@ class Task extends Component {
                   name="taskDescription" 
                   value={this.state.taskDescription}
                   onChange={this.handleOnTaskDescription} 
+                  size={this.props.description.length}
                 />
               </div>
 
