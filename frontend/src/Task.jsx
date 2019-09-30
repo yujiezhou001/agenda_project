@@ -17,7 +17,9 @@ class Task extends Component {
 
     state = {
       checked: this.props.status,
-      id: this.props.id
+      id: this.props.id,
+      taskName: "",
+      taskDescription: ""
     }
 
     //handle the checkbox of every task
@@ -55,7 +57,17 @@ class Task extends Component {
         });
       }
 
+    handleOnTaskName = (e) => {
+      this.setState({
+        taskName: e.target.value
+      });
+    }
 
+    handleOnTaskDescription = (e) => {
+      this.setState({
+        taskDescription: e.target.value
+      });
+    }
 
 
     componentDidMount() {
@@ -112,7 +124,14 @@ class Task extends Component {
               </div>
 
               <div className="taskSecondBlock">
-                <span className="taskDescription">Description: {this.props.description}</span>
+                <input 
+                  className="taskDescription" 
+                  type="text" 
+                  placeholder={this.props.description} 
+                  name="taskDescription" 
+                  value={this.state.taskDescription}
+                  onChange={this.handleOnTaskDescription} 
+                />
               </div>
 
               <div className="taskThirdBlock">

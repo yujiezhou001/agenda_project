@@ -23,5 +23,6 @@ exports.seed = function(knex) {
         },
       ]);
     }),
+    knex.raw('SELECT setval(\'tasks_id_seq\', (SELECT MAX(id) from "tasks"));'),
   ]);
 };
